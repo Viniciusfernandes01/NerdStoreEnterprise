@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "uz/yVBk7N043WjLlwCNEvjzUnWlNu+R+hfUHVv5VHfO9eQcZqtN1WIfwfQzAcPqmkHQ610cJGncbsz0E1Lgpkw==",
+  "success": true,
+  "projectFilePath": "/home/vinicius/Documents/play-code/dotnet-enterprise/NerdStoreEnterprise/src/Services/Catalog/NSE.Catalog.API/NSE.Catalog.API.csproj",
+  "expectedPackageFiles": [
+    "/home/vinicius/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/vinicius/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/vinicius/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/home/vinicius/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/home/vinicius/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/home/vinicius/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
