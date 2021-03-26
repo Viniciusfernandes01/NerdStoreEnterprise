@@ -38,6 +38,7 @@ namespace NSE.Identity.API
 
       services.AddDefaultIdentity<IdentityUser>()
         .AddRoles<IdentityRole>()
+        .AddErrorsDescriber<IdentityMessagesInPortuguese>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
       
