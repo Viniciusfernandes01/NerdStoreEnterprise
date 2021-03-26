@@ -14,9 +14,8 @@ using NSE.Identity.API.Extensions;
 
 namespace NSE.Identity.API.Controllers
 {
-  [ApiController]
   [Route("/api/identity")]
-  public class AuthController : Controller
+  public class AuthController : MainController
   {
 
     private readonly SignInManager<IdentityUser> _signInManager;
@@ -36,7 +35,7 @@ namespace NSE.Identity.API.Controllers
     [HttpPost("New account")]
     public async Task<ActionResult> Register(UserRegister userRegister)
     {
-      if (!ModelState.IsValid) return BadRequest();
+      if (!ModelState.IsValid) return CustomResponse(ModelState);
 
       var user = new IdentityUser
       {
@@ -49,17 +48,21 @@ namespace NSE.Identity.API.Controllers
 
       if (result.Succeeded)
       {
-        await _signInManager.SignInAsync(user, false);
-        return Ok(await GenerateJwt(userRegister.Email));
+        return CustomResponse(await GenerateJwt(userRegister.Email));
       }
 
-      return BadRequest();
+      foreach(var error in result.Errors)
+      {
+        AddErrorsInProcessing(error.Description);
+      }
+
+      return CustomResponse();
     }
 
     [HttpPost("Authentication")]
     public async Task<ActionResult> Login(UserLogin userLogin)
     {
-      if (!ModelState.IsValid) return BadRequest();
+      if (!ModelState.IsValid) return CustomResponse(ModelState);
 
       var result = await _signInManager.PasswordSignInAsync(userLogin.Email,
       userLogin.Password,
@@ -67,10 +70,17 @@ namespace NSE.Identity.API.Controllers
 
       if (result.Succeeded)
       {
-        return Ok(await GenerateJwt(userLogin.Email));
+        return CustomResponse(await GenerateJwt(userLogin.Email));
       }
 
-      return BadRequest();
+      if(result.IsLockedOut)
+      {
+        AddErrorsInProcessing("Usuário bloqueado temporariamente por tentativas inválidas.");
+        return CustomResponse();
+      }
+
+      AddErrorsInProcessing("Usuário ou senha incorretos.");
+      return CustomResponse();
 
     }
 
