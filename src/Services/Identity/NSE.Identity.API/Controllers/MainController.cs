@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace NSE.Identity.API.Controllers
 {
@@ -19,13 +21,13 @@ namespace NSE.Identity.API.Controllers
 
       return BadRequest(new ValidationProblemDetails(new Dictionary<string, string[]>
       {
-          {"Messages", Errors.ToArray()}
+        { "Mensagens", Errors.ToArray() }
       }));
     }
 
     protected ActionResult CustomResponse(ModelStateDictionary modelState)
     {
-      var errors = modelState.Values.Selectmany(e => e.Errors);
+      var errors = modelState.Values.SelectMany(e => e.Errors);
       foreach (var error in errors)
       {
         AddErrorsInProcessing(error.ErrorMessage);

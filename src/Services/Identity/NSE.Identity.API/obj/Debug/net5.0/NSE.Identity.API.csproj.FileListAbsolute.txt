@@ -68,3 +68,13 @@
 /home/vinicius/Documents/play-code/dotnet-enterprise/NerdStoreEnterprise/src/Services/Identity/NSE.Identity.API/obj/Debug/net5.0/NSE.Identity.API.genruntimeconfig.cache
 /home/vinicius/Documents/play-code/dotnet-enterprise/NerdStoreEnterprise/src/Services/Identity/NSE.Identity.API/bin/Debug/net5.0/Humanizer.dll
 /home/vinicius/Documents/play-code/dotnet-enterprise/NerdStoreEnterprise/src/Services/Identity/NSE.Identity.API/bin/Debug/net5.0/Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.dll
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\ref\NSE.Identity.API.dll
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.pdb
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.csprojAssemblyReference.cache
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.AssemblyInfoInputs.cache
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.AssemblyInfo.cs
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.csproj.CoreCompileInputs.cache
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\darth\source\repos\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.MvcApplicationPartsAssemblyInfo.cache

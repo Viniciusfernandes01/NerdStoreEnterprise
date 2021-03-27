@@ -5,12 +5,12 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using NSE.Identity.API.Models;
+using NSE.Identity.API.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using System.IdentityModel.Tokens;
-using NSE.Identity.API.Models;
-using NSE.Identity.API.Extensions;
+using Microsoft.IdentityModel.Tokens;
 
 namespace NSE.Identity.API.Controllers
 {
