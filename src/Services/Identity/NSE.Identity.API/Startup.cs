@@ -38,7 +38,7 @@ namespace NSE.Identity.API
 
       services.AddDefaultIdentity<IdentityUser>()
         .AddRoles<IdentityRole>()
-        .AddErrorsDescriber<IdentityMessagesInPortuguese>()
+        .AddErrorDescriber<IdentityMessagesInPortuguese>()
         .AddEntityFrameworkStores<ApplicationDbContext>()
         .AddDefaultTokenProviders();
       
@@ -49,7 +49,7 @@ namespace NSE.Identity.API
 
       var appSettings = appSettingsSection.Get<AppSettings>();
       var key = Encoding.ASCII.GetBytes(appSettings.Secret);
-
+  
       services.AddAuthentication(x =>
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -23,15 +23,16 @@ namespace NSE.Identity.API.Controllers
     private readonly AppSettings _appSettings;
 
     public AuthController(
-        SignInManager<IdentityUser> signInManager,
-        UserManager<IdentityUser> userManager,
-        IOptions<AppSettings> appSettings
+      SignInManager<IdentityUser> signInManager,
+      UserManager<IdentityUser> userManager,
+      IOptions<AppSettings> appSettings
     )
     {
       _signInManager = signInManager;
       _userManager = userManager;
       _appSettings = appSettings.Value;
     }
+
     [HttpPost("New account")]
     public async Task<ActionResult> Register(UserRegister userRegister)
     {
@@ -51,7 +52,7 @@ namespace NSE.Identity.API.Controllers
         return CustomResponse(await GenerateJwt(userRegister.Email));
       }
 
-      foreach(var error in result.Errors)
+      foreach (var error in result.Errors)
       {
         AddErrorsInProcessing(error.Description);
       }
@@ -65,15 +66,15 @@ namespace NSE.Identity.API.Controllers
       if (!ModelState.IsValid) return CustomResponse(ModelState);
 
       var result = await _signInManager.PasswordSignInAsync(userLogin.Email,
-      userLogin.Password,
-      false, true);
+        userLogin.Password,
+        false, true);
 
       if (result.Succeeded)
       {
         return CustomResponse(await GenerateJwt(userLogin.Email));
       }
 
-      if(result.IsLockedOut)
+      if (result.IsLockedOut)
       {
         AddErrorsInProcessing("Usuário bloqueado temporariamente por tentativas inválidas.");
         return CustomResponse();
@@ -84,26 +85,29 @@ namespace NSE.Identity.API.Controllers
 
     }
 
-    private async Task<UserResponseLogin> GenerateJwt(string email)
+    private async Task<ClaimsIdentity> GetUserClaims(ICollection<Claim> claims, IdentityUser user)
     {
-      var user =  await _userManager.FindByEmailAsync(email);
-      var claims = await _userManager.GetClaimsAsync(user);
       var userRoles = await _userManager.GetRolesAsync(user);
 
       claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));
       claims.Add(new Claim(JwtRegisteredClaimNames.Email, user.Email));
       claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
       claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
-      claims.Add(new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(DateTime.UtcNow).ToString(), ClaimValueTypes.Integer64));
-      
+      claims.Add(new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(DateTime.UtcNow).ToString(),
+        ClaimValueTypes.Integer64));
       foreach (var userRole in userRoles)
       {
         claims.Add(new Claim("role", userRole));
       }
 
-      var identityClaims =  new ClaimsIdentity();
+      var identityClaims = new ClaimsIdentity();
       identityClaims.AddClaims(claims);
 
+      return identityClaims;
+    }
+
+    private string GetToken(ClaimsIdentity identityClaims)
+    {
       var tokenHandler = new JwtSecurityTokenHandler();
       var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
 
@@ -113,12 +117,15 @@ namespace NSE.Identity.API.Controllers
         Audience = _appSettings.ValidIn,
         Subject = identityClaims,
         Expires = DateTime.UtcNow.AddHours(_appSettings.ExpiresHours),
-        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        SigningCredentials =
+          new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
       });
 
-      var encodedToken = tokenHandler.WriteToken(token);
+      return tokenHandler.WriteToken(token);
+    }
 
-      var response = new UserResponseLogin
+    private UserResponseLogin TokenResponse(string encodedToken, IdentityUser user, IEnumerable<Claim> claims)var
+      return new UserResponseLogin
       {
         AccessToken = encodedToken,
         ExpiresIn = TimeSpan.FromHours(_appSettings.ExpiresHours).TotalSeconds,
@@ -130,7 +137,18 @@ namespace NSE.Identity.API.Controllers
         }
       };
 
-      return response;
+
+    private async Task<UserResponseLogin> GenerateJwt(string email)
+    {
+      var user =  await _userManager.FindByEmailAsync(email);
+      var claims = await _userManager.GetClaimsAsync(user);
+      
+      var identityClaims = await GetUserClaims(user);
+      var encodedToken = await GetToken(claims, user);
+
+      return TokenResponse(encodedToken, user, claims);
+
+      
     }
 
     private static long ToUnixEpochDate(DateTime date)
