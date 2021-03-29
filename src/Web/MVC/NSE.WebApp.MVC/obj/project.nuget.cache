@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D2SYe6m85AkzltGuGp142XiWpIntit4zX9EKToKG88liUWDuLZEVn9ShLTBWSPn4JMBYLYLPHQ6WsACCky+kNw==",
+  "dgSpecHash": "8hgDx9RDCUCgk0MdwQ4jVQ+SoUYwV4ijUT85K8Zdw6ItHR74UdotCYR3O1o+b9PEkyH+RJANydntVGiIxUkraA==",
   "success": true,
-  "projectFilePath": "/home/vinicius/Documents/play-code/dotnet-enterprise/NerdStoreEnterprise/src/Web/MVC/NSE.WebApp.MVC/NSE.WebApp.MVC.csproj",
+  "projectFilePath": "C:\\Users\\vinicius\\Documents\\GitHub\\NerdStoreEnterprise\\src\\Web\\MVC\\NSE.WebApp.MVC\\NSE.WebApp.MVC.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

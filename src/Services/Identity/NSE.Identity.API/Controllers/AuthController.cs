@@ -124,7 +124,8 @@ namespace NSE.Identity.API.Controllers
       return tokenHandler.WriteToken(token);
     }
 
-    private UserResponseLogin TokenResponse(string encodedToken, IdentityUser user, IEnumerable<Claim> claims)var
+    private UserResponseLogin TokenResponse(string encodedToken, IdentityUser user, IEnumerable<Claim> claims)
+     {       
       return new UserResponseLogin
       {
         AccessToken = encodedToken,
@@ -136,6 +137,7 @@ namespace NSE.Identity.API.Controllers
           Claims = claims.Select(c => new UserClaim {Type = c.Type, Value = c.Value})
         }
       };
+     }
 
 
     private async Task<UserResponseLogin> GenerateJwt(string email)
@@ -143,12 +145,10 @@ namespace NSE.Identity.API.Controllers
       var user =  await _userManager.FindByEmailAsync(email);
       var claims = await _userManager.GetClaimsAsync(user);
       
-      var identityClaims = await GetUserClaims(user);
-      var encodedToken = await GetToken(claims, user);
+      var identityClaims = await GetUserClaims(claims, user);
+      var encodedToken = GetToken(identityClaims);
 
       return TokenResponse(encodedToken, user, claims);
-
-      
     }
 
     private static long ToUnixEpochDate(DateTime date)

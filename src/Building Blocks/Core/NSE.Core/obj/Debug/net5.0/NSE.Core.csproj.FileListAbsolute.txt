@@ -1,0 +1,11 @@
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\bin\Debug\net5.0\NSE.Core.deps.json
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\bin\Debug\net5.0\NSE.Core.dll
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\bin\Debug\net5.0\ref\NSE.Core.dll
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\bin\Debug\net5.0\NSE.Core.pdb
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.AssemblyInfoInputs.cache
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.AssemblyInfo.cs
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.csproj.CoreCompileInputs.cache
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.dll
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\ref\NSE.Core.dll
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.pdb
