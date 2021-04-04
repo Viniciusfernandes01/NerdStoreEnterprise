@@ -8,14 +8,18 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\vinicius\\Documents\\GitHub\\NerdStoreEnterprise\\src\\Web\\MVC\\NSE.WebApp.MVC\\NSE.WebApp.MVC.csproj",
-        "projectName": "NSE.WebApp.MVC",
+        "projectName": "'",
         "projectPath": "C:\\Users\\vinicius\\Documents\\GitHub\\NerdStoreEnterprise\\src\\Web\\MVC\\NSE.WebApp.MVC\\NSE.WebApp.MVC.csproj",
         "packagesPath": "C:\\Users\\vinicius\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\vinicius\\Documents\\GitHub\\NerdStoreEnterprise\\src\\Web\\MVC\\NSE.WebApp.MVC\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
           "C:\\Users\\vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -39,6 +43,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.9.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

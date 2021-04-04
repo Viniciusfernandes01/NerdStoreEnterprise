@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\Services",
-    "\\src\\Services\\Identity",
-    "\\src\\Services\\Identity\\NSE.Identity.API",
-    "\\src\\Services\\Identity\\NSE.Identity.API\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\src\\Services\\Identity\\NSE.Identity.API\\Startup.cs",
+  "SelectedNode": "\\NerdStoreEnterprise.sln",
   "PreviewInSolutionExplorer": false
 }

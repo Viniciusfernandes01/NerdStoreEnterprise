@@ -33,7 +33,7 @@ namespace NSE.Identity.API.Controllers
       _appSettings = appSettings.Value;
     }
 
-    [HttpPost("New account")]
+    [HttpPost("new-account")]
     public async Task<ActionResult> Register(UserRegister userRegister)
     {
       if (!ModelState.IsValid) return CustomResponse(ModelState);
@@ -60,7 +60,7 @@ namespace NSE.Identity.API.Controllers
       return CustomResponse();
     }
 
-    [HttpPost("Authentication")]
+    [HttpPost("authentication")]
     public async Task<ActionResult> Login(UserLogin userLogin)
     {
       if (!ModelState.IsValid) return CustomResponse(ModelState);
