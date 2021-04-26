@@ -27,11 +27,11 @@ namespace NSE.WebApp.MVC
             Configuration = builder.Build();
         }
 
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddIdentityConfiguration();
             services.AddMvcConfiguration(Configuration);
-            services.RegisterServices();
+            services.RegisterServices(configuration);
 
         }
 

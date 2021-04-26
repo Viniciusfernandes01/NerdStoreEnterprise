@@ -28,8 +28,6 @@ namespace NSE.Identity.API
        Configuration = builder.Build();
     }
 
-    
-
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddSwaggerConfiguration();
