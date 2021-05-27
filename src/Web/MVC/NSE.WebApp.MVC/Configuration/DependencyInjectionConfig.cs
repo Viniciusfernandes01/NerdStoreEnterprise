@@ -36,15 +36,19 @@ namespace NSE.WebApp.MVC.Configuration
                 .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
                 //.AddTransientHttpErrorPolicy(
                 //    p => p.WaitAndRetryAsync(3, _ => TimeSpan.FromMilliseconds(600)));
+                .AddPolicyHandler(PollyExtensions.WaitAndRetry())
+                .AddTransientHttpErrorPolicy(
+                    p => p.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30)));
 
-                //services.AddHttpClient("Refit", 
-                //        options => 
-                //        { 
-                //            options.BaseAddress = new Uri(configuration.GetSection("CatalogUrl").Value); 
-                //        })
-                //    .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
-                //    .AddTypedClient(Refit.RestService.For<ICatalogServiceRefit>);
-                .AddPolicyHandler(PollyExtensions.WaitAndRetry());
+            #region Refit
+            //services.AddHttpClient("Refit", 
+            //        options => 
+            //        { 
+            //            options.BaseAddress = new Uri(configuration.GetSection("CatalogUrl").Value); 
+            //        })
+            //    .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
+            //    .AddTypedClient(Refit.RestService.For<ICatalogServiceRefit>);
+            #endregion
 
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

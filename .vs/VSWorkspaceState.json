@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\Building Blocks",
+    "\\src\\Building Blocks\\Core",
+    "\\src\\Building Blocks\\Core\\NSE.Core"
   ],
-  "SelectedNode": "\\NerdStoreEnterprise.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Polly.CircuitBreaker;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,14 @@ namespace NSE.WebApp.MVC.Extensions
             {
                 HandleRequestExceptionAsync(httpContext, ex.StatusCode);
             }
+            catch (ApiException ex)
+            {
+                HandleRequestExceptionAsync(httpContext, ex.StatusCode);
+            }
+            catch (BrokenCircuitException)
+            {
+                HandleCircuitBreakerExceptionAsync(httpContext);
+            }
         }
 
         private static void HandleRequestExceptionAsync(HttpContext httpContext, HttpStatusCode statusCode)
@@ -44,6 +53,11 @@ namespace NSE.WebApp.MVC.Extensions
             }
 
             httpContext.Response.StatusCode = (int)statusCode;
+        }
+
+        private static void HandleCircuitBreakerExceptionAsync(HttpContext context)
+        {
+            context.Response.Redirect("/not-available");
         }
     }
 }

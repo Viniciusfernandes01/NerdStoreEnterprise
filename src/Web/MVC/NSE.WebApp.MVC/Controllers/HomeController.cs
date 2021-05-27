@@ -15,6 +15,20 @@ namespace NSE.WebApp.MVC.Controllers
             return View();
         }
 
+        //not-available
+        [Route("not-available")]
+        public IActionResult NotAvailable()
+        {
+            var modelErro = new ErrorViewModel
+            {
+                Message = "system temporarily unavailable, try again later",
+                ErrorCode = 500,
+                Title = "Not Available"
+            };
+
+            return View("Error", modelErro);
+        }
+
         [Route("erro/{id:length(3,3)}")]
         public IActionResult Error(int id)
         {
