@@ -2,11 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Services",
-    "\\src\\Services\\Identity",
-    "\\src\\Services\\Identity\\NSE.Identity.API",
-    "\\src\\Services\\Identity\\NSE.Identity.API\\Controllers"
+    "\\src\\Building Blocks",
+    "\\src\\Building Blocks\\Core",
+    "\\src\\Building Blocks\\Core\\NSE.Core"
   ],
-  "SelectedNode": "\\src\\Services\\Identity\\NSE.Identity.API\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

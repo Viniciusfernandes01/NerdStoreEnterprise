@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
 using NSE.WebApp.MVC.Models;
 
 namespace NSE.WebApp.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
             return View();
@@ -28,10 +15,50 @@ namespace NSE.WebApp.MVC.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        //not-available
+        [Route("not-available")]
+        public IActionResult NotAvailable()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var modelErro = new ErrorViewModel
+            {
+                Message = "system temporarily unavailable, try again later",
+                ErrorCode = 500,
+                Title = "Not Available"
+            };
+
+            return View("Error", modelErro);
+        }
+
+        [Route("erro/{id:length(3,3)}")]
+        public IActionResult Error(int id)
+        {
+            var modelError = new ErrorViewModel();
+
+            if (id == 500)
+            {
+                modelError.Message = "Erro! Tente novamente ou contato nosso suporte.";
+                modelError.Title = "Erro!";
+                modelError.ErrorCode = id;
+            }
+
+            if (id == 404)
+            {
+                modelError.Message = "Página não existe! Tente novamente ou contato nosso suporte.";
+                modelError.Title = "Página não encontrada!";
+                modelError.ErrorCode = id;
+            }
+            else if(id == 403)
+            {
+                modelError.Message = "Você não tem permissão para acessar está página! Tente novamente ou contato nosso suporte.";
+                modelError.Title = "Permissão negada!";
+                modelError.ErrorCode = id;
+            }
+            else
+            {
+                return StatusCode(404);
+            }
+
+            return View("Error", modelError);
         }
     }
 }

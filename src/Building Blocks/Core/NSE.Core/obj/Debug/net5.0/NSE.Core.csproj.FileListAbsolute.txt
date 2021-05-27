@@ -9,3 +9,4 @@ C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\
 C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.dll
 C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\ref\NSE.Core.dll
 C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.pdb
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Building Blocks\Core\NSE.Core\obj\Debug\net5.0\NSE.Core.csprojAssemblyReference.cache

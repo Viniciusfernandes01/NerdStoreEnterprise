@@ -218,3 +218,5 @@ C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Services\Identity\NSE
 C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\ref\NSE.Identity.API.dll
 C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.pdb
 C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\obj\Debug\net5.0\NSE.Identity.API.genruntimeconfig.cache
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\bin\Debug\net5.0\NSE.WebApi.Core.dll
+C:\Users\vinicius\Documents\GitHub\NerdStoreEnterprise\src\Services\Identity\NSE.Identity.API\bin\Debug\net5.0\NSE.WebApi.Core.pdb
